@@ -1,0 +1,107 @@
+@startuml
+class main.java.com.proyect.ClearCommand {
+- Calculator calculator
++ void execute()
+}
+
+
+interface main.java.com.proyect.Command {
+~ void execute()
+}
+
+class main.java.com.proyect.MultiplyCommand {
+- Calculator calculator
+- double a
+- double b
++ void execute()
+}
+
+
+class main.java.com.proyect.DivideCommand {
+- Calculator calculator
+- double a
+- double b
++ void execute()
+}
+
+
+class main.java.com.proyect.ResultCommand {
+- Calculator calculator
++ void execute()
+}
+
+
+class main.java.com.proyect.SubtractCommand {
+- Calculator calculator
+- double a
+- double b
++ void execute()
+}
+
+
+class main.java.com.proyect.PowerCommand {
+- Calculator calculator
+- double a
+- double b
++ void execute()
+}
+
+
+class main.java.com.proyect.CalculatorGUI {
+- Calculator calculator
+- JFrame frame
+- JTextField display
+- double currentResult
+- double currentValue
+- String currentOperation
+- JPanel createButtonsPanel()
+- void addButton(JPanel,String)
+- void addOperationButton(JPanel,String)
+- void performPendingOperation()
+- void addResultButton(JPanel)
++ {static} void main(String[])
+}
+
+
+class main.java.com.proyect.AddCommand {
+- Calculator calculator
+- double a
+- double b
++ void execute()
+}
+
+
+class main.java.com.proyect.Calculator {
+- double result
+- double currentInput
+- StringBuilder currentExpression
+- Command pendingCommand
++ double getResult()
++ void setResult(double)
++ double getCurrentInput()
++ void setCurrentInput(double)
++ Command getPendingCommand()
++ void setPendingCommand(Command)
++ String getCurrentExpression()
++ void appendToExpression(String)
++ void clearExpression()
++ double add(double,double)
++ double subtract(double,double)
++ double multiply(double,double)
++ double divide(double,double)
++ double power(double,double)
++ void clear()
++ void deleteLastDigit()
+}
+
+
+
+
+main.java.com.proyect.Command <|.. main.java.com.proyect.ClearCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.MultiplyCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.DivideCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.ResultCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.SubtractCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.PowerCommand
+main.java.com.proyect.Command <|.. main.java.com.proyect.AddCommand
+@enduml
